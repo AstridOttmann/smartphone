@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Smartphone implements Radio, GPS {
     private String modelName;
@@ -74,12 +75,14 @@ public class Smartphone implements Radio, GPS {
         System.out.println("No contact with given name");
         return contactList;
 
-    /*    contactList.removeIf(contact -> name.equals(contact.getName()));
+    /*  removes all contacts with the given name:
+      contactList.removeIf(contact -> name.equals(contact.getName()));
         return contactList;*/
     }
 
     @Override
     public String getPosition() {
+        System.out.println("Köln");
         return "Köln";
     }
 
@@ -103,4 +106,30 @@ public class Smartphone implements Radio, GPS {
                 ", contactList=" + contactList +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Smartphone that = (Smartphone) o;
+        return Objects.equals(contactList, that.contactList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(contactList);
+    }
+
+    /*  @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Smartphone that = (Smartphone) o;
+        return Objects.equals(modelName, that.modelName) && Objects.equals(brand, that.brand) && Objects.equals(contactList, that.contactList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(modelName, brand, contactList);
+    }*/
 }

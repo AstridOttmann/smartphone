@@ -11,13 +11,10 @@ public class Main {
         System.out.println(myPhone);
 
         Contact entry1 = new Friend("Anna", 123456789);
-        //System.out.println(entry1);
 
         Contact businessEntry1 = new BusinessContact("Company Happy", "Frau Nice", 55667788);
-        //System.out.println(businessEntry1);
 
         Contact businessEntry2 = new BusinessContact("Company Happier", "Frau Smile", 33445566);
-        //System.out.println(businessEntry1);
 
         myContacts.add(entry1);
         myContacts.add(businessEntry1);
@@ -27,16 +24,22 @@ public class Main {
         //System.out.println(myContacts.add(businessEntry2));
         //System.out.println("Again Phone: " + myPhone);
 
-        System.out.println("New method " + myPhone.addContact(businessEntry2));
-        System.out.println("New method " + myPhone.addContact(entry1));
-        System.out.println("New method " + myPhone.addContact(entry1));
-        System.out.println("New Phone: " + myPhone);
+        myPhone.startRadio();
+        myPhone.stopRadio();
+        myPhone.getPosition();
+        System.out.println(myPhone.toString());
+
+        System.out.println("Add method " + myPhone.addContact(businessEntry2));
+        System.out.println("Add method " + myPhone.addContact(entry1));
+        System.out.println("Add method " + myPhone.addContact(entry1));
+        System.out.println("Phone actual: " + myPhone);
 
         System.out.println("Get " + myPhone.getContact(2));
         System.out.println(myContacts.size());
         System.out.println("Get by name " + myPhone.getContactByName("Anna"));
         System.out.println("Remove " + myPhone.removeContactByName("Anna"));
         System.out.println(myContacts.size());
+
 
     }
 }
