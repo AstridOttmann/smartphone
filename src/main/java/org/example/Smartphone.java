@@ -47,7 +47,35 @@ public class Smartphone implements Radio, GPS {
     }
 
     public Contact getContact(int index) {
-        return contactList.get(index);
+        if (index < contactList.size()) {
+            return contactList.get(index);
+        }
+        System.out.println("No contact with given index");
+        return null;
+    }
+
+    public Contact getContactByName(String name) {
+        for (Contact contact : contactList) {
+            if (name.equals(contact.getName())) {
+                return contact;
+            }
+        }
+        System.out.println("No contact with given name");
+        return null;
+    }
+
+    public List<Contact> removeContactByName(String name) {
+        for (Contact contact : contactList) {
+            if (name.equals(contact.getName())) {
+                contactList.remove(contact);
+                return contactList;
+            }
+        }
+        System.out.println("No contact with given name");
+        return contactList;
+
+    /*    contactList.removeIf(contact -> name.equals(contact.getName()));
+        return contactList;*/
     }
 
     @Override
