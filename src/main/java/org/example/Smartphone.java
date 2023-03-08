@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class Smartphone implements Radio, GPS {
@@ -47,12 +48,13 @@ public class Smartphone implements Radio, GPS {
         return contactList;
     }
 
-    public Contact getContact(int index) {
+    public Contact getContact(int index) throws IndexOutOfBoundsException {
         if (index < contactList.size()) {
             return contactList.get(index);
         }
-        System.out.println("No contact with given index");
-        return null;
+        throw new IndexOutOfBoundsException("Index out of range");
+        //System.out.println("No contact with given index");
+       // return null;
     }
 
     public Contact getContactByName(String name) {
@@ -72,7 +74,7 @@ public class Smartphone implements Radio, GPS {
                 return contactList;
             }
         }
-        System.out.println("No contact with given name");
+                System.out.println("No contact with given name");
         return contactList;
 
     /*  removes all contacts with the given name:

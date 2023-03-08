@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,8 +35,13 @@ public class Main {
         System.out.println("Add method " + myPhone.addContact(entry1));
         System.out.println("Phone actual: " + myPhone);
 
-        System.out.println("Get " + myPhone.getContact(2));
         System.out.println(myContacts.size());
+        System.out.println("------------");
+        try {
+            System.out.println("Get " + myPhone.getContact(5));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println("Get by name " + myPhone.getContactByName("Anna"));
         System.out.println("Remove " + myPhone.removeContactByName("Anna"));
         System.out.println(myContacts.size());
