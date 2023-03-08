@@ -57,14 +57,15 @@ public class Smartphone implements Radio, GPS {
        // return null;
     }
 
-    public Contact getContactByName(String name) {
+    public Contact getContactByName  (String name) throws NoSuchElementException{
         for (Contact contact : contactList) {
             if (name.equals(contact.getName())) {
                 return contact;
             }
         }
-        System.out.println("No contact with given name");
-        return null;
+      throw new NoSuchElementException("No contact with given name");
+       /* System.out.println("No contact with given name");
+        return null;*/
     }
 
     public List<Contact> removeContactByName(String name) {

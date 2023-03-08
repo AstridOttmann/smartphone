@@ -28,7 +28,6 @@ public class Main {
         myPhone.startRadio();
         myPhone.stopRadio();
         myPhone.getPosition();
-        System.out.println(myPhone.toString());
 
         System.out.println("Add method " + myPhone.addContact(businessEntry2));
         System.out.println("Add method " + myPhone.addContact(entry1));
@@ -36,13 +35,19 @@ public class Main {
         System.out.println("Phone actual: " + myPhone);
 
         System.out.println(myContacts.size());
+
         System.out.println("------------");
         try {
-            System.out.println("Get " + myPhone.getContact(5));
+            System.out.println("Get " + myPhone.getContact(0));
         } catch (IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Get by name " + myPhone.getContactByName("Anna"));
+        try {
+            System.out.println("Get by name " + myPhone.getContactByName("anna"));
+        } catch (NoSuchElementException e) {
+            System.out.println(e.getMessage());
+        }
+
         System.out.println("Remove " + myPhone.removeContactByName("Anna"));
         System.out.println(myContacts.size());
 
